@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moto X - Play Online Motorcycle Racing Game | DeepSeekGames</title>
+    <meta name="description" content="Play Moto X online - An exciting motorcycle racing game with challenging tracks and realistic physics. Experience the thrill of off-road racing!">
+    <link rel="canonical" href="https://deepseekgames.online/moto-x">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+        .game-container {
+            aspect-ratio: 16/9;
+            max-width: 100%;
+            height: auto;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.2);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+        }
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #ffffff;
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-button:hover {
+            color: #ffff00;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="bg-black border-b border-gray-800">
+        <nav class="container mx-auto px-4 py-6">
+            <div class="flex justify-center">
+                <a href="/" class="text-3xl font-bold text-yellow-400 hover:text-yellow-300 transition-colors">DeepSeekGames</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <article class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-center text-yellow-400 mb-8">Moto X</h1>
+            <p class="text-xl text-center text-gray-300 mb-12">Ultimate Motorcycle Racing Experience</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-gray-900 rounded-xl p-6 card-hover cursor-pointer relative overflow-hidden" onclick="openGame()">
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent"></div>
+                    <div class="aspect-video bg-gray-800 rounded-lg mb-4 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent"></div>
+                        <img 
+                            src="https://assets.misjuegos.com/0/24330/78577/1344x896/moto-x3m.jpg" 
+                            alt="Moto X Game Preview" 
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                        >
+                    </div>
+                    <h2 class="text-xl font-semibold text-yellow-400 mb-2 relative">Play Now</h2>
+                    <p class="text-gray-400 relative">Click to start the ultimate motorcycle racing adventure!</p>
+                </div>
+
+                <div class="bg-gray-900 rounded-xl p-6 card-hover">
+                    <h2 class="text-xl font-semibold text-yellow-400 mb-4">Game Features</h2>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            Realistic motorcycle physics
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            Multiple challenging tracks
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            Stunt system
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            Time-based challenges
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <section class="space-y-6">
+                <h2 class="text-2xl font-semibold text-yellow-400">About Moto X</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    Moto X is an exhilarating motorcycle racing game that combines realistic physics with challenging tracks. 
+                    Players navigate through various terrains, perform stunts, and compete against time to become the ultimate champion.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-yellow-400">How to Play</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    Use your keyboard or touch controls to navigate your motorcycle through various obstacles and terrain. 
+                    Collect power-ups, perform stunts, and try to complete each level in the fastest time possible.
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <div id="gameModal" class="modal">
+        <div class="close-button" onclick="closeGame()">&times;</div>
+        <div class="w-full max-w-4xl mx-4">
+            <div class="game-container">
+                <iframe 
+                    id="gameFrame"
+                    src="" 
+                    class="w-full h-full rounded-lg"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black border-t border-gray-800 mt-12">
+        <div class="container mx-auto px-4 py-6">
+            <p class="text-center text-gray-600">© 2024 DeepSeekGames. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openGame() {
+            const modal = document.getElementById('gameModal');
+            const iframe = document.getElementById('gameFrame');
+            iframe.src = 'https://www.onlinegames.io/games/2024/gm/moto-x3m/index.html';
+            modal.classList.add('active');
+        }
+
+        function closeGame() {
+            const modal = document.getElementById('gameModal');
+            const iframe = document.getElementById('gameFrame');
+            iframe.src = '';
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('gameModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGame();
+            }
+        });
+    </script>
+</body>
+</html> 
